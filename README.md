@@ -21,7 +21,7 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
 
 ### Quick Install
 
-**[Click here to install](https://update.greasyfork.org/scripts/553223/Xcom%20Profile%20Cleaner.user.js)**
+**[Click here to install](https://greasyfork.org/en/scripts/553223-x-com-profile-cleaner)**
 
 ### Manual Installation
 
@@ -32,7 +32,7 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
    - [Safari](https://apps.apple.com/us/app/tampermonkey/id6738342400)
    - [Opera](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
-2. Click the [install link](https://update.greasyfork.org/scripts/553223/Xcom%20Profile%20Cleaner.user.js) or:
+2. Click the [install link](https://greasyfork.org/en/scripts/553223-x-com-profile-cleaner) or:
    - Open Tampermonkey Dashboard
    - Click the "+" tab to create a new script
    - Copy and paste the script from `userscript.js`
