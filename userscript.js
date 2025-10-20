@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         X.com Profile Cleaner
 // @namespace    http://tampermonkey.net/
-// @version      2.1.1
+// @version      2.2
 // @description  Delete all your tweets and undo reposts from your X.com profile
 // @author       d_g_t_l (https://x.com/d_g_t_l)
 // @match        https://x.com/*
