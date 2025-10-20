@@ -21,7 +21,7 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
 
 ### Quick Install
 
-**[Click here to install](https://raw.githubusercontent.com/bogdantimes/x-profile-cleaner/main/userscript.js)**
+**[Click here to install](https://update.greasyfork.org/scripts/553223/Xcom%20Profile%20Cleaner.user.js)**
 
 ### Manual Installation
 
