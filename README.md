@@ -15,6 +15,7 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
 - **Smart detection** to only process your own content
 - **Pause/Resume** functionality
 - **Persistent username** storage across sessions
+- **Advanced filtering** using X's search operators (date ranges, keywords, engagement metrics)
 
 ## Installation
 
@@ -56,6 +57,46 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
    - Scroll down to load more content
    - Continue until all content is processed
 
+### Advanced: Delete Tweets from Specific Time Period
+
+You can use X's search functionality to target specific tweets:
+
+**Delete tweets from a date range:**
+```
+from:yourusername since:2023-01-01 until:2024-01-01
+```
+
+**Delete only replies:**
+```
+from:yourusername filter:replies
+```
+
+**Delete tweets with specific keywords:**
+```
+from:yourusername "keyword or phrase"
+```
+
+**Delete tweets with low engagement:**
+```
+from:yourusername max_faves:10
+```
+
+**How to use:**
+1. Go to X.com search
+2. Enter your search query (e.g., `from:yourusername since:2023-01-01 until:2024-01-01`)
+3. Press Enter to see filtered results
+4. Run the script on the search results page
+5. It will only delete tweets shown in those search results!
+
+**Other useful operators:**
+- `min_replies:N` / `max_replies:N` - Filter by reply count
+- `min_faves:N` / `max_faves:N` - Filter by like count
+- `min_retweets:N` / `max_retweets:N` - Filter by repost count
+- `filter:links` - Only tweets with links
+- `filter:media` - Only tweets with images/videos
+- `filter:mentions` - Only tweets mentioning others
+- `-filter:replies` - Exclude replies
+
 ### Controls
 
 - **Start Cleaning**: Begin the deletion process
@@ -74,7 +115,7 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
 
 ### Limitations:
 
-- Must be on your own profile page to work
+- Must be on your own profile page or search results to work
 - Cannot delete tweets you're mentioned in (only your own)
 - May take time for profiles with thousands of tweets
 - Twitter may temporarily rate-limit if you process too much too fast
@@ -93,6 +134,10 @@ Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.git
 **Rate limiting:**
 - Take breaks if Twitter shows errors
 - The script includes delays to minimize this
+
+**Search results not working:**
+- Make sure you're using the correct search syntax
+- Verify the search returns results before running the script
 
 ## Privacy
 
@@ -115,4 +160,3 @@ Created by [@d_g_t_l](https://x.com/d_g_t_l)
 ## Disclaimer
 
 This script is provided as-is with no warranties. Use at your own risk. The author is not responsible for any data loss or account issues resulting from use of this script.
-
