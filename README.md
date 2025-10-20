@@ -2,6 +2,10 @@
 
 A Tampermonkey userscript to bulk delete tweets and undo reposts from your X.com (Twitter) profile.
 
+## 🌐 Website
+
+Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.github.io/x-profile-cleaner/) for easy installation and full documentation.
+
 ## Features
 
 - **Delete all tweets** from your profile automatically
@@ -14,24 +18,24 @@ A Tampermonkey userscript to bulk delete tweets and undo reposts from your X.com
 
 ## Installation
 
-### 1. Install Tampermonkey
+### Quick Install
 
-First, install the Tampermonkey browser extension:
+**[Click here to install](https://raw.githubusercontent.com/bogdantimes/x-profile-cleaner/main/userscript.js)**
 
-- **Chrome**: [Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-- **Firefox**: [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-- **Edge**: [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
-- **Safari**: [Tampermonkey for Safari](https://apps.apple.com/us/app/tampermonkey/id1482490089)
+### Manual Installation
 
-### 2. Install the Script
+1. Install Tampermonkey for your browser:
+   - [Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+   - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+   - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+   - [Safari](https://apps.apple.com/us/app/tampermonkey/id6738342400)
+   - [Opera](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
-Click here to install: **[Install X.com Profile Cleaner](https://raw.githubusercontent.com/bogdantimes/x-profile-cleaner/main/userscript.js)**
-
-Or manually:
-1. Open Tampermonkey Dashboard
-2. Click the "+" tab to create a new script
-3. Copy and paste the entire script
-4. Save (Ctrl+S or Cmd+S)
+2. Click the install link above or:
+   - Open Tampermonkey Dashboard
+   - Click the "+" tab to create a new script
+   - Copy and paste the script from `userscript.js`
+   - Save (Ctrl+S or Cmd+S)
 
 ## Usage
 
