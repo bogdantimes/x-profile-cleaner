@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         X.com Profile Cleaner
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  Delete all your tweets and undo reposts from your X.com profile
 // @author       d_g_t_l (https://x.com/d_g_t_l)
 // @match        https://x.com/*
@@ -18,6 +18,15 @@
     let deletedCount = 0;
     let unrepostedCount = 0;
     let targetUsername = GM_getValue('targetUsername', '');
+
+    // Draggable functionality
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = GM_getValue('panelX', 0);
+    let yOffset = GM_getValue('panelY', 0);
 
     function waitForElement(selector, timeout = 10000) {
         return new Promise((resolve, reject) => {
@@ -409,6 +418,60 @@
         console.log('Finished');
     }
 
+    // Draggable functions
+    function dragStart(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
+            return;
+        }
+
+        if (e.type === 'touchstart') {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+        }
+
+        isDragging = true;
+        controlPanel.style.cursor = 'grabbing';
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+            
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, controlPanel);
+        }
+    }
+
+    function dragEnd(e) {
+        if (isDragging) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+            controlPanel.style.cursor = 'grab';
+            
+            // Save position
+            GM_setValue('panelX', xOffset);
+            GM_setValue('panelY', yOffset);
+        }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
     // Create control panel
     const controlPanel = document.createElement('div');
     controlPanel.style.cssText = `
@@ -425,6 +488,31 @@
         gap: 10px;
         align-items: stretch;
         min-width: 250px;
+        cursor: grab;
+        user-select: none;
+    `;
+
+    // Set initial position
+    setTranslate(xOffset, yOffset, controlPanel);
+
+    // Add drag event listeners
+    controlPanel.addEventListener('mousedown', dragStart);
+    controlPanel.addEventListener('touchstart', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', dragEnd);
+    document.addEventListener('touchend', dragEnd);
+
+    // Drag handle indicator
+    const dragHandle = document.createElement('div');
+    dragHandle.textContent = '⋮⋮';
+    dragHandle.style.cssText = `
+        color: rgba(255,255,255,0.5);
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 2px;
+        margin: -5px 0 5px 0;
+        cursor: grab;
     `;
 
     // Username input
@@ -497,6 +585,7 @@
         margin: 5px 0;
     `;
 
+    controlPanel.appendChild(dragHandle);
     controlPanel.appendChild(usernameInput);
     controlPanel.appendChild(saveBtn);
     controlPanel.appendChild(statusText);
@@ -508,4 +597,3 @@
     console.log('X.com Profile Cleaner loaded. Enter your username to start.');
 })();
 
- 
