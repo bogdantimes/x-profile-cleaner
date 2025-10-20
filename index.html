@@ -317,26 +317,68 @@
         </div>
 
         <div class="card">
-            <h2>FAQ</h2>
-            
-            <h3>Is this safe to use?</h3>
-            <p>Yes. The script runs entirely in your browser and doesn't send any data to external servers. It's open-source so you can review the code yourself.</p>
+    <h2>How to Use</h2>
+    <ol class="steps">
+        <li>
+            <strong>Go to Your Profile</strong><br>
+            Visit <code>https://x.com/yourusername</code> or the "Posts & replies" tab
+        </li>
+        <li>
+            <strong>Enter Your Username</strong><br>
+            Type your username (without @) in the control panel and click "Save Username"
+        </li>
+        <li>
+            <strong>Start Cleaning</strong><br>
+            Click "Start Cleaning" and watch as your tweets are deleted automatically
+        </li>
+        <li>
+            <strong>Stop Anytime</strong><br>
+            Click "Stop" to pause the process whenever you want
+        </li>
+    </ol>
 
-            <h3>Can I recover deleted tweets?</h3>
-            <p>No. Once deleted, tweets cannot be recovered. Download your Twitter archive first if you want a backup.</p>
+    <h3 style="margin-top: 30px; color: #1da1f2;">💡 Pro Tip: Delete Tweets from Specific Time Period</h3>
+    <p style="background: #f7f9fa; padding: 20px; border-radius: 10px; margin-top: 15px;">
+        Want to delete only tweets from a certain date range? Use X's search feature:<br><br>
+        1. Go to X.com search and type: <code>from:yourusername since:2023-01-01 until:2024-01-01</code><br>
+        2. Press Enter to see only tweets from that time period<br>
+        3. Run the script - it will only delete the tweets shown in those search results!<br><br>
+        <strong>Other useful search filters:</strong><br>
+        • <code>from:yourusername filter:replies</code> - Only your replies<br>
+        • <code>from:yourusername min_faves:100</code> - Tweets with 100+ likes<br>
+        • <code>from:yourusername keyword</code> - Tweets containing specific words
+    </p>
 
-            <h3>Will this get me banned?</h3>
-            <p>The script uses normal browser actions (clicking buttons) and includes delays to respect rate limits. However, use responsibly.</p>
+    <img src="screenshot.png" alt="Control Panel Screenshot" class="screenshot" style="display:none;">
+    <!-- Add your screenshot later -->
+</div>
 
-            <h3>Why do I need to enter my username?</h3>
-            <p>The script needs to identify your tweets vs. tweets from others that appear on your profile (replies, mentions, etc.).</p>
+<div class="card">
+    <h2>FAQ</h2>
+    
+    <h3>Is this safe to use?</h3>
+    <p>Yes. The script runs entirely in your browser and doesn't send any data to external servers. It's open-source so you can review the code yourself.</p>
 
-            <h3>Can I delete tweets from a specific time period?</h3>
-            <p>Not yet, but this feature could be added in future updates. Feel free to contribute on GitHub!</p>
+    <h3>Can I recover deleted tweets?</h3>
+    <p>No. Once deleted, tweets cannot be recovered. Download your Twitter archive first if you want a backup.</p>
 
-            <h3>It's stuck, what do I do?</h3>
-            <p>Click "Stop", refresh the page, and try again. Some tweets (like pinned tweets) may need manual deletion.</p>
-        </div>
+    <h3>Will this get me banned?</h3>
+    <p>The script uses normal browser actions (clicking buttons) and includes delays to respect rate limits. However, use responsibly.</p>
+
+    <h3>Why do I need to enter my username?</h3>
+    <p>The script needs to identify your tweets vs. tweets from others that appear on your profile (replies, mentions, etc.).</p>
+
+    <h3>Can I delete tweets from a specific time period?</h3>
+    <p>Yes! Use X's advanced search to filter by date. Search for <code>from:yourusername since:2023-01-01 until:2024-01-01</code> and run the script on those search results. The script will only delete tweets visible in that filtered view. You can also use other search operators like <code>filter:replies</code>, <code>min_faves:10</code>, or keyword searches to target specific tweets.</p>
+
+    <h3>Can I delete only replies or only tweets with certain keywords?</h3>
+    <p>Yes! Use X's search operators: <code>from:yourusername filter:replies</code> for only replies, or <code>from:yourusername "keyword"</code> for tweets containing specific words. Run the script on the search results page.</p>
+
+    <h3>It's stuck, what do I do?</h3>
+    <p>Click "Stop", refresh the page, and try again. Some tweets (like pinned tweets) may need manual deletion.</p>
+</div>
+
+
 
         <div class="card">
             <h2>Technical Details</h2>
