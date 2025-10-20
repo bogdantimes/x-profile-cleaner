@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         X.com Profile Cleaner
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.1.1
 // @description  Delete all your tweets and undo reposts from your X.com profile
 // @author       d_g_t_l (https://x.com/d_g_t_l)
 // @match        https://x.com/*
@@ -424,6 +424,9 @@
             return;
         }
 
+        e.preventDefault();
+        e.stopPropagation();
+
         if (e.type === 'touchstart') {
             initialX = e.touches[0].clientX - xOffset;
             initialY = e.touches[0].clientY - yOffset;
@@ -434,11 +437,14 @@
 
         isDragging = true;
         controlPanel.style.cursor = 'grabbing';
+        document.body.style.overflow = 'hidden';
+        document.body.style.userSelect = 'none';
     }
 
     function drag(e) {
         if (isDragging) {
             e.preventDefault();
+            e.stopPropagation();
             
             if (e.type === 'touchmove') {
                 currentX = e.touches[0].clientX - initialX;
@@ -457,10 +463,15 @@
 
     function dragEnd(e) {
         if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             initialX = currentX;
             initialY = currentY;
             isDragging = false;
             controlPanel.style.cursor = 'grab';
+            document.body.style.overflow = '';
+            document.body.style.userSelect = '';
             
             // Save position
             GM_setValue('panelX', xOffset);
@@ -490,18 +501,19 @@
         min-width: 250px;
         cursor: grab;
         user-select: none;
+        touch-action: none;
     `;
 
     // Set initial position
     setTranslate(xOffset, yOffset, controlPanel);
 
     // Add drag event listeners
-    controlPanel.addEventListener('mousedown', dragStart);
-    controlPanel.addEventListener('touchstart', dragStart);
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('touchmove', drag);
-    document.addEventListener('mouseup', dragEnd);
-    document.addEventListener('touchend', dragEnd);
+    controlPanel.addEventListener('mousedown', dragStart, { passive: false });
+    controlPanel.addEventListener('touchstart', dragStart, { passive: false });
+    document.addEventListener('mousemove', drag, { passive: false });
+    document.addEventListener('touchmove', drag, { passive: false });
+    document.addEventListener('mouseup', dragEnd, { passive: false });
+    document.addEventListener('touchend', dragEnd, { passive: false });
 
     // Drag handle indicator
     const dragHandle = document.createElement('div');
@@ -513,6 +525,7 @@
         letter-spacing: 2px;
         margin: -5px 0 5px 0;
         cursor: grab;
+        touch-action: none;
     `;
 
     // Username input
@@ -525,6 +538,7 @@
         border: none;
         border-radius: 5px;
         font-size: 14px;
+        cursor: text;
     `;
 
     // Save button
