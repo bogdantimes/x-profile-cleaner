@@ -4,7 +4,7 @@ A Tampermonkey userscript to bulk delete tweets and undo reposts from your X.com
 
 ## 🌐 Website
 
-Visit [https://bogdantimes.github.io/x-profile-cleaner/](https://bogdantimes.github.io/x-profile-cleaner/) for easy installation and full documentation.
+Visit [https://digitalmaxing.github.io/x-profile-cleaner/](https://digitalmaxing.github.io/x-profile-cleaner/).
 
 ## Features
 
